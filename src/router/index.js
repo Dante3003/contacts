@@ -21,7 +21,8 @@ const routes = [
   {
     path: '/contactForm/:id',
     name: 'ContactForm',
-    component: ContactForm
+    component: ContactForm,
+    props: true
   }
 ]
 

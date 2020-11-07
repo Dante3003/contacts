@@ -1,20 +1,40 @@
 <template>
     <div class="form-group">
-        <label for="name-input" class="ml-1">{{title}}</label>
-        <input type="text" v-for="(item, index) in items" :key="index" name="name" id="name-input" class="form-control mb-2" v-model="items[index]" placeholder="Номер телефона" autocomplete="off">
-        <button class="btn btn-primary" @click.prevent="addItemHandler">добавить номер</button>
+        <label class="ml-1">{{title}}</label>
+        <div class="d-flex mb-2" v-for="(item, index) in items" :key="index">
+            <input class="form-control" :type="typeName" name="name" id="name-input" v-model="items[index]" placeholder="Номер телефона" autocomplete="off">
+            <button class="btn btn-danger ml-1" :data-id="index" @click.prevent="removeItemHandler">X</button>
+        </div>
+        <button class="btn btn-primary" @click.prevent="addItemHandler">Добавить</button>
     </div>
 </template>>
 
 
 <script>
+import {mapActions} from 'vuex';
 export default {
     name: 'InputGroup',
-    props: ['items', 'title'],
+    props: ['items', 'title', 'name'],
     methods: {
+        ...mapActions(['removeItem']),
         addItemHandler() {
-            console.log('work');
-            this.$emit('addItemHandler', this.items)
+            this.$emit('addItemHandler', this.name);
+        },
+        removeItemHandler(e) {
+            const idx = e.target.dataset.id;
+            this.$emit('removeItemHandler', this.name, idx);
+        }
+    },
+    computed: {
+        typeName() {
+            if (this.name === 'numbers') {
+                return 'tell';
+            }
+            if (this.name === 'emails') {
+                return 'email';
+            }
+            
+            return 'text';
         }
     },
 }

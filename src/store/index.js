@@ -37,17 +37,11 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    set(state, {type, items}) {
-      state[type] = items;
-    },
     addContact(state, newItem) {
       state.contacts.push(newItem);
     },
     removeContact(state, index) {
       state.contacts.splice(index, 1);
-    },
-    removeItem(state, {item, index}) {
-      state.contacts[item].splice(index, 1);
     },
     editContact(state, index, newItem) {
       state.contacts[index] = newItem;
@@ -57,9 +51,6 @@ export default new Vuex.Store({
     addContact({commit}, newItem) {
       commit('addContact', newItem)
     },
-    setContact({commit}, item, newItem) {
-      commit('set', {type: item, items: newItem});
-    },
     removeContact({state, commit}, id) {
       const index = state.contacts.findIndex(i => i.id === parseInt(id));
       commit('removeContact', index);
@@ -67,11 +58,6 @@ export default new Vuex.Store({
     editContact({commit}, index, newItem) {
       commit('editContact', index, newItem);
     },
-    removeItem({commit}, item, index) {
-      commit('removeItem', item, index);
-    }
-  },
-  modules: {
   },
   getters: {
     getContacts(state) {
