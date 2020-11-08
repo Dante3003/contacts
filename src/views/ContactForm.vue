@@ -1,19 +1,37 @@
 <template>
 <div class="container d-flex flex-column align-items-center">
-    <h4 class="">Новый контакт</h4>
+    <h4 class="">{{pageTitle}}</h4>
 
     <form class="form-horizontal d-flex flex-column align-items-left w-100" v-on:submit.prevent="contactSaveHandler">
 
         <div class="form-group">
             <label for="name-input" class="ml-1">Имя абонента</label>
-            <input type="text" name="name" id="name-input" class="form-control" v-model="contact.name" placeholder="Имя абонента" autocomplete="off">
+            <input type="text" name="name" id="name-input" class="form-control" required v-model="contact.name" placeholder="Имя абонента" autocomplete="off">
         </div>
-        <InputGroup :items="contact.numbers" @removeItemHandler="removeHandler" @addItemHandler="addItemHandler" :title="'Номер телефона'" :name="'numbers'" />
-        <InputGroup :items="contact.addresses" @removeItemHandler="removeHandler" @addItemHandler="addItemHandler" :title="'Адресс'" :name="'addresses'" />
-        <InputGroup :items="contact.emails" @removeItemHandler="removeHandler" @addItemHandler="addItemHandler" :title="'Почта'" :name="'emails'" />
+        <InputGroup 
+            :items="contact.numbers" 
+            @removeItemHandler="removeHandler" 
+            @addItemHandler="addItemHandler" 
+            :title="'Номер телефона'" 
+            :name="'numbers'" />
+        <InputGroup 
+            :items="contact.addresses" 
+            removeItemHandler="removeHandler" 
+            @addItemHandler="addItemHandler" 
+            :title="'Адресс'" 
+            :name="'addresses'" />
+        <InputGroup 
+            :items="contact.emails" 
+            @removeItemHandler="removeHandler" 
+            @addItemHandler="addItemHandler" 
+            :title="'Почта'" 
+            :name="'emails'" />
         
 
-        <input type="submit" class="btn btn-primary" value="Сохранить" />
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary" @click.prevent="chansel">Отмена</button>
+            <button type="submit" class="btn btn-outline-success" value="Сохранить">Сохранить</button>
+        </div>
 
     </form>
 
@@ -55,6 +73,12 @@ export default {
                 return this.newContact
             }
             return this.getContacts[this.newIndex];
+        },
+        pageTitle() {
+            if (this.id === 'new') {
+                return 'Новый контакт'
+            }
+            return 'Изменить контакт'
         }
     },
     methods: {
@@ -85,6 +109,11 @@ export default {
             }
             this.contact[items].push('');
         },
+        chansel() {
+            this.$router.push({
+                name: 'Home'
+            });
+        }
     },
     mounted() {},
 }

@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
-    <div class="pt-2 px-2 d-flex align-items-center justify-content-between">
+  <div class="container pb-2">
+    <div class="d-flex align-items-center justify-content-between pt-2 pb-4 px-2">
       <h3 class="m-0">{{contact.name}}</h3>
       <div>
         <button
-          class="btn btn-outline-secondary btn-sm mr-1"
+          class="btn btn-outline-primary btn-sm mr-1"
           :data-id="contact.id"
           @click="contactEditHandler"
         >Изменить</button>
@@ -15,14 +15,14 @@
         >Удалить</button>
       </div>
     </div>
-    <hr class="mb-3" />
     <ul class="list-group mb-2">
-      <h5 class="p-2">Номер</h5>
+      <h5 class="p-2">Номер телефона</h5>
       <li
         v-for="(number, index) in contact.numbers"
         :key="index"
         class="list-group-item d-flex justify-content-between align-items-center"
       >{{number}}</li>
+      <p class="" v-if="contact.numbers.length <= 0">Информация отсуствует</p>
     </ul>
     <ul class="list-group mb-2">
       <h5 class="p-2">Адресс</h5>
@@ -36,6 +36,7 @@
     <ul class="list-group">
       <h5 class="p-2">Почта</h5>
       <li v-for="(email, index) in contact.emails" :key="index" class="list-group-item">{{email}}</li>
+      <p class="" v-if="contact.emails.length <= 0">Информация отсуствует</p>
     </ul>
   </div>
 </template>

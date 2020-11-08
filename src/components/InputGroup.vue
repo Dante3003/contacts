@@ -1,22 +1,31 @@
 <template>
     <div class="form-group">
-        <label class="ml-1">{{title}}</label>
-        <div class="d-flex mb-2" v-for="(item, index) in items" :key="index">
-            <input class="form-control" :type="typeName" name="name" id="name-input" v-model="items[index]" placeholder="Номер телефона" autocomplete="off">
-            <button class="btn btn-danger ml-1" :data-id="index" @click.prevent="removeItemHandler">X</button>
+        <div class="d-flex justify-content-between align-items-center mb-1">
+            <label class="ml-1 mt-2">{{title}}</label>
+            <button class="btn" @click.prevent="addItemHandler">Добавить</button>
         </div>
-        <button class="btn btn-primary" @click.prevent="addItemHandler">Добавить</button>
+        <div class="input-group rounded" v-for="(item, index) in items" :key="index">
+            <input 
+                class="form-control rounded-0" 
+                :type="typeName" name="name" 
+                id="name-input" v-model="items[index]" 
+                autocomplete="off" />
+            <div class="input-group-append" >
+                <button 
+                    class="btn btn-outline-danger rounded-0" 
+                    :data-id="index" 
+                    @click.prevent="removeItemHandler">&#9866;</button>
+            </div>
+        </div>
     </div>
 </template>>
 
 
 <script>
-import {mapActions} from 'vuex';
 export default {
     name: 'InputGroup',
     props: ['items', 'title', 'name'],
     methods: {
-        ...mapActions(['removeItem']),
         addItemHandler() {
             this.$emit('addItemHandler', this.name);
         },
