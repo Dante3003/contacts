@@ -9,17 +9,11 @@
       <div class="col-lg-4 col-md-6 col-sm-12" v-for="contact in searchContact" :key="contact.id" @click="$router.push({name: 'single', params: {id: contact.id}})" v-bind:test="'work'">
         <div class="shadow d-flex align-items-center pl-2 py-1 mb-4 rounded">
           <div class="avatar">
-            <img src="@/assets/user.png">
+            <img src="@/assets/user.png" alt="avatar">
           </div>
-<<<<<<< HEAD
-          <div class="ml-3 btn text-left">
-            <h5>{{contact.name}}</h5>
-            <p class=""> {{contact.numbers[0]}} </p>
-=======
           <div class="btn ml-3 text-left">
             <h5 class="text-success">{{contact.name}}</h5>
             <p class="text-secondary"> {{contact.numbers[0]}} </p>
->>>>>>> e6a8091f6f580a152e141464ff6d7d6279f7e80a
           </div>
         </div>
       </div>
