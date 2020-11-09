@@ -11,9 +11,9 @@
           <div class="avatar">
             <img src="@/assets/user.png" alt="">
           </div>
-          <div class="card-body">
+          <div class="ml-3 btn text-left">
             <h5>{{contact.name}}</h5>
-            <p> {{contact.numbers[0]}} </p>
+            <p class=""> {{contact.numbers[0]}} </p>
           </div>
         </div>
       </div>

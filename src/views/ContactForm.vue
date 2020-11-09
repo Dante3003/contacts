@@ -16,7 +16,7 @@
             :name="'numbers'" />
         <InputGroup 
             :items="contact.addresses" 
-            removeItemHandler="removeHandler" 
+            @removeItemHandler="removeHandler" 
             @addItemHandler="addItemHandler" 
             :title="'Адресс'" 
             :name="'addresses'" />
@@ -100,6 +100,7 @@ export default {
             });
         },
         removeHandler(item, itemIndex) {
+            console.log('work');
             this.contact[item].splice(itemIndex, 1);
         },
         addItemHandler(items) {

@@ -8,7 +8,7 @@ export default new Vuex.Store({
     contacts: [
       {
         id: 1,
-        name: 'Боб',
+        name: 'Том однокурсник',
         numbers: ['+992907785262', '+9928886462002', '+992908444464'],
         addresses: ['г.Душанбе, ул.Исмили Сомони, дом 13'],
         emails: ['xtronshark889@gmail.com', 'someexample@gmail.com']
@@ -17,22 +17,22 @@ export default new Vuex.Store({
         id: 2,
         name: 'Андрей',
         numbers: ['+99280245879687'],
-        addresses: [],
-        emails: ['andrey544@mail.com']
+        addresses: [' г. Душанбе р-н Сино, ул. С.Шерози'],
+        emails: ['andrey544@mail.com', 'maradonna332@gmail.com']
       },
       {
         id: 3,
-        name: 'Никалай',
+        name: 'Николай',
         numbers: ['+75896554785'],
-        addresses: [],
+        addresses: ['г.Душанбе, пр.Рудаки 30'],
         emails: ['nikolay231@mail.com']
       },
       {
         id: 4,
         name: 'Дориюш',
-        numbers: ['+992885645787'],
-        addresses: [],
-        emails: ['darisDark@gmail.com']
+        numbers: ['+992917898921'],
+        addresses: ['Nova Prospect'],
+        emails: ['daris99dark@mail.ru']
       }
     ]
   },
