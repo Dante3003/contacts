@@ -6,15 +6,15 @@
         </div>
         <div class="input-group rounded" v-for="(item, index) in items" :key="index">
             <input 
-                class="form-control rounded-0" 
+                class="form-control rounded-left" 
                 :type="typeName" name="name" 
                 id="name-input" v-model="items[index]" 
                 autocomplete="off" />
-            <div class="input-group-append" >
+            <div class="input-group-append rounded-right" >
                 <button 
-                    class="btn btn-outline-danger rounded-0" 
+                    class="btn btn-outline-danger rounded-right" 
                     :data-id="index" 
-                    @click.prevent="removeItemHandler">&#9866;</button>
+                    @click.prevent="removeItemHandler">&times;</button>
             </div>
         </div>
     </div>

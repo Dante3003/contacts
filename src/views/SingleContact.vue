@@ -1,5 +1,5 @@
 <template>
-  <div class="container pb-2">
+  <div class="container pb-2 col-md-9">
     <div class="d-flex align-items-center justify-content-between pt-2 pb-4 px-2">
       <h3 class="m-0">{{contact.name}}</h3>
       <div>

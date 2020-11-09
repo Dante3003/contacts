@@ -1,5 +1,5 @@
 <template>
-<div class="container d-flex flex-column align-items-center">
+<div class="container d-flex flex-column align-items-center col-md-9">
     <h4 class="">{{pageTitle}}</h4>
 
     <form class="form-horizontal d-flex flex-column align-items-left w-100" v-on:submit.prevent="contactSaveHandler">
