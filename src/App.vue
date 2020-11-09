@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+    <div id="app" class="bg-light container-fluid">
+      <router-view></router-view>
+    </div>
 </template>
 
 <script>
