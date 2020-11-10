@@ -23,14 +23,10 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
 import {mapActions, mapGetters} from 'vuex';
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  },
   data() {
     return {
       search: ''

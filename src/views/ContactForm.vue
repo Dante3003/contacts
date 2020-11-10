@@ -27,7 +27,6 @@
             :title="'Почта'" 
             :name="'emails'" />
         
-
         <div class="d-flex justify-content-between">
             <button class="btn btn-outline-secondary" @click.prevent="chansel">Отмена</button>
             <button type="submit" class="btn btn-outline-success" value="Сохранить">Сохранить</button>
@@ -100,7 +99,6 @@ export default {
             });
         },
         removeHandler(item, itemIndex) {
-            console.log('work');
             this.contact[item].splice(itemIndex, 1);
         },
         addItemHandler(items) {

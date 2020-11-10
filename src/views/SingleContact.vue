@@ -49,7 +49,8 @@ export default {
   props: ["id"],
   computed: {
     ...mapGetters(['getContacts']),
-    newIndex() {
+   
+   newIndex() {
       return this.getContacts.findIndex(i => i.id === parseInt(this.id));
     },
     contact() {
@@ -58,6 +59,7 @@ export default {
   },
   methods: {
     ...mapActions(["removeContact"]),
+    
     contactEditHandler(e) {
       this.$router.push({
         name: "ContactForm",
