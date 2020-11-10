@@ -31,7 +31,7 @@ export default new Vuex.Store({
         id: 4,
         name: 'Дориюш',
         numbers: ['+992917898921'],
-        addresses: ['Nova Prospect'],
+        addresses: ['г.Душанбе, ул.Исмили Сомони, дом 15'],
         emails: ['daris99dark@mail.ru']
       }
     ]
